@@ -1,2 +1,1 @@
-# DVA
-Dieren Van Artis
+# Dieren Van Artis
