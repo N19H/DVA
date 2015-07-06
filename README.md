@@ -1,2 +1,2 @@
 # Dieren Van Artis
-DierenTinder
+Dieren Tinder
