@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dieren van Artis</title>
+
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  	<div class="container-fluid">
+	    <h1>Dieren van Artis</h1>
+	</div>
+
+	<div class="container-fluid">
+	    <ul class="nav nav-tabs nav-justified">
+		  <li role="presentation"  class="active"><a data-toggle="pill" id="nav-cluster1" href="#">Cluster Rood</a></li>
+		  <li role="presentation"><a id="nav-cluster2"  data-toggle="pill" href="#">Cluster Blauw</a></li>
+		  <li role="presentation"><a id="nav-cluster3"  data-toggle="pill" href="#">Cluster Groen</a></li>
+		</ul>
+	</div>
+
+	<div class="container-fluid main-content" id="c1-show">
+		<!-- Modal -->
+		<div class="modal fade" id="newAnimal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Voeg dier toe</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+				  <div class="form-group">
+				    <label for="dier">Dier</label>
+				    <input type="text" class="form-control" id="dier" placeholder="bijv: Krokodil">
+				  </div>
+				  <div class="form-group">
+				  	<label for="cluster-class">Klas</label>
+				    <select id="cluster-class "class="form-control">
+					  <option>Klas Blauw</option>
+					  <option>Klas Groen</option>
+					  <option>Klas Geel</option>
+					  <option>Klas Magenta</option>
+					  <option>Klas Oranje</option>
+					</select>
+				  </div>
+				  <div class="form-group">
+				    <label for="teamname">Team Naam</label>
+				    <input type="text" class="form-control" id="teamname" placeholder="bijv: Team Jantje">
+				  </div>
+				  <div class="form-group">
+				    <label for="animalphoto">Dieren foto</label>
+				    <input type="file" id="animalphoto">
+				    <p class="help-block">Deze kan later toegevoegd worden.</p>
+				  </div>
+				</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="submit" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+		<div class="table-responsive">
+		  <table class="table table-striped">
+		    <thead>
+		        <tr>
+		          <th>Ronde</th>
+		          <th>Cluster</th>
+		          <th>Start/Stop</th>
+		          <th>Emailen</th>
+		          <th>Aantal stemmen</th>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <th scope="row">Ronde 1</th>
+		          <td>Cluster Rood voor Cluster Groen</td>
+		          <td><a id="btn-session-c1r1" class="btn btn-info btn-lg" href="#" role="button">START RONDE 1</a></td>
+		          <td>Verstuur Email</td>
+		          <td>20</td>
+		        </tr>
+		    	<tr>
+		          <th scope="row">Ronde 2</th>
+		          <td>Cluster Rood voor Cluster Rood</td>
+		          <td><a id="btn-session-c1r2" class="btn btn-info btn-lg" href="#" role="button">START RONDE 2</a>
+				</td>
+		          <td>erstuur Email</td>
+		          <td>0</td>
+		        </tr>
+		      </tbody>
+		  </table>
+		</div>
+
+		<p>
+			<button type="button" id="btn-c1-animal" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#newAnimal">VOEG DIER TOE</button>
+			
+		</p>
+		<div class="table-responsive">
+		  <table class="table table-striped">
+		    <thead>
+		        <tr>
+		          <th>#</th>
+		          <th>Dier</th>
+		          <th>Team</th>
+		          <th>Ronde 1</th>
+		          <th>Ronde 2</th>
+		          <th>Verschil</th>
+		          <th>Edit/Verwijder</th>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <th scope="row">1</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		          <td><button type="button" data-toggle="modal" data-target="#newAnimal" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>edit</button> <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>verwijder</button></td>
+		        </tr>
+		        <tr>
+		          <th scope="row">2</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		          <td><button type="button" data-toggle="modal" data-target="#newAnimal" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>edit</button> <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>verwijder</button></td>
+		        </tr>
+		        <tr>
+		          <th scope="row">3</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		          <td><button type="button" data-toggle="modal" data-target="#newAnimal" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>edit</button> <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>verwijder</button></td>
+		        </tr>
+		        <tr>
+		          <th scope="row">4</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		          <td><button type="button" data-toggle="modal" data-target="#newAnimal" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>edit</button> <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>verwijder</button></td>
+		        </tr>
+		        <tr>
+		          <th scope="row">5</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		          <td><button type="button" data-toggle="modal" data-target="#newAnimal" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>edit</button> <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>verwijder</button></td>
+		        </tr>
+		        <tr>
+		          <th scope="row">6</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		          <td><button type="button" data-toggle="modal" data-target="#newAnimal" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>edit</button> <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>verwijder</button></td>
+		        </tr>
+		        <tr>
+		          <th scope="row">7</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		          <td><button type="button" data-toggle="modal" data-target="#newAnimal" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>edit</button> <button type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>verwijder</button></td>
+		        </tr>
+		        
+		      </tbody>
+		  </table>
+		</div>
+	</div>
+	<div class="container-fluid main-content" id="c2-show">
+		<p>
+			<button type="button" id="btn-c1-animal" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">VOEG DIER TOE</button>
+			<div class="session-buttons">
+				<a id="btn-session-c1r1" class="btn btn-success btn-lg" href="#" role="button">START RONDE 1</a> 
+				<a id="btn-session-c1r2" class="btn btn-danger btn-lg" href="#" role="button">START RONDE 2</a>
+			</div>
+		</p>
+		<div class="table-responsive">
+		  <table class="table table-striped">
+		    <thead>
+		        <tr>
+		          <th>#</th>
+		          <th>Dier</th>
+		          <th>Team</th>
+		          <th>Ronde 1</th>
+		          <th>Ronde 2</th>
+		          <th>Verschil</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <th scope="row">1</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">2</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">3</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">4</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">5</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">6</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">7</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">8</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">9</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">10</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">11</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">12</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">13</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">14</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">15</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">16</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">17</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">18</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">19</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">20</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">21</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">22</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">23</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">24</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		      </tbody>
+		  </table>
+		</div>
+	</div>
+	<div class="container-fluid main-content" id="c3-show">
+		<p>
+			<button type="button" id="btn-c1-animal" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">VOEG DIER TOE</button>
+			<div class="session-buttons">
+				<a id="btn-session-c1r1" class="btn btn-info btn-lg" href="#" role="button">START RONDE 1</a> 
+				<a id="btn-session-c1r2" class="btn btn-info btn-lg" href="#" role="button">START RONDE 2</a>
+			</div>
+		</p>
+		<div class="table-responsive">
+		  <table class="table table-striped">
+		    <thead>
+		        <tr>
+		          <th>#</th>
+		          <th>Dier</th>
+		          <th>Team</th>
+		          <th>Ronde 1</th>
+		          <th>Ronde 2</th>
+		          <th>Verschil</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		        <tr>
+		          <th scope="row">1</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">2</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">3</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">4</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">5</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">6</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">7</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">8</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">9</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">10</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">11</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">12</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">13</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">14</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">15</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">16</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">17</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">18</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">19</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">20</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">21</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">22</th>
+		          <td>Dwergoeistiti</td>
+		          <td>Otto</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">23</th>
+		          <td>Brede Flappentak</td>
+		          <td>Thornton</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		        <tr>
+		          <th scope="row">24</th>
+		          <td>Gehoornde Koffervis</td>
+		          <td>the Bird</td>
+		          <td>20%</td>
+		          <td>80%</td>
+		          <td>60%</td>
+		        </tr>
+		      </tbody>
+		  </table>
+		</div>
+	</div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="js/toggle.js"></script>
+  </body>
+</html>

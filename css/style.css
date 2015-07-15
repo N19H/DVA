@@ -1,0 +1,21 @@
+.table-item{background-color: #ff0000;}
+
+#c1-show {
+	display: block;
+}
+#c2-show {
+	display: none;
+}
+#c3-show {
+	display: none;
+}
+.nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:focus, .nav-tabs.nav-justified>.active>a:hover {background-color: #dccdbe;}
+a#nav-cluster1{color: #b41e3c;}
+a#nav-cluster2{color: #004696;}
+a#nav-cluster3{color: #009b8c;}
+.nav li a {font-size: 200%;}
+
+.session-buttons {float: right;}
+.main-content {margin-top: 2em;}
+.main-content p {display: inline-block; margin-bottom: 2em;}
+
