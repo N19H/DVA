@@ -1,0 +1,32 @@
+/* CSS Document */
+
+/* de lijst */
+
+ul {
+	position:relative;
+	
+	display:-ms-flex;
+	display:-webkit-flex;
+	display:flex;
+	
+	-ms-flex-wrap:wrap;
+	-webkit-flex-wrap:wrap;
+	flex-wrap:wrap;
+}
+
+/* een dier */
+
+li {
+	-ms-flex-basis:5em;
+	-webkit-flex-basis:5em;
+	flex-basis:5em;
+	
+	line-height:5em;
+	text-align:center;
+}
+li.ja {
+	background:rgb(0,204,0);
+}
+li.nee {
+	background:rgb(204,0,0);
+}
