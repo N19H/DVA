@@ -38,13 +38,12 @@ li section.plaatje{
     position: relative;
 	
 	margin:2em;
-	padding:1.5em 1.5em 0;
 
     box-shadow: 2px 2px 2px rgb(202,204,204);
     border: 1px solid black;
     background-color: white;
 	
-	transition: .5s ease-out;
+	transition: .75s ease-out;
 }
 
 li img{
@@ -58,13 +57,15 @@ h2 {
 
 /* beweging van de dieren na klikken */
 .ja section.plaatje{
-    -webkit-transform:translateX(200%) rotate(30deg);
-    transform:translateX(200%) rotate(30deg);
+    -webkit-transform:translateX(200%) rotate(30deg) scale(.8);
+    transform:translateX(200%) rotate(30deg) scale(.8);
+	opacity:0;
 }
 
 .nee section.plaatje {
-    -webkit-transform:translateX(-200%) rotate(-30deg);
-    transform:translateX(-200%) rotate(-30deg);
+    -webkit-transform:translateX(-200%) rotate(-30deg) scale(.8);
+    transform:translateX(-200%) rotate(-30deg) scale(.8);
+	opacity:0;
 }
 
 /* ja/nee knoppen */
@@ -89,7 +90,9 @@ label{
 }
 
 label:first-of-type{ /* NEE */
-	background:rgb(204,0,0) url(../images/knop1.png);
+	background:rgb(204,0,0) url(../images/knop1.png) no-repeat center center;
+	background-size:4em;
+	transform:rotate(180deg);
 }
 
 label:last-of-type{ /* JA */
