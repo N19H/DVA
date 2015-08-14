@@ -10,3 +10,26 @@
 li {
     list-style:none;
 }
+
+/* wrappers */
+body {
+	position:relative;
+	text-align:center;
+}
+
+/* de header */
+header {
+	text-align:center;
+	background:rgb(255,204,0);
+}
+
+/* main */
+main {
+	position:relative;
+	max-width:32em;
+	margin:auto;
+}
+
+main > p {
+	color:olive;
+}

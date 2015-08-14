@@ -1,139 +1,104 @@
-/* CSS Document */
-
-
-body, html{
-    width:100%;
-	text-align:center;
-}
-
-html{
-    overflow-x: hidden;
-}
-
-
-/* header */
-
-header{
-    text-align: center;
-}
-
 /* de lijst */
+form {
+	position:relative;
+}
 
 ul {
     position:relative;
-	width:100%;
 }
 
 /* een dier */
-
 li {
     position:absolute;
 	width:100%;
-	
 }
 
-/* plaatje en naam*/
-
-li section.plaatje{
-    position: relative;
-	
-	margin:2em;
-
-    box-shadow: 2px 2px 2px rgb(202,204,204);
-    border: 1px solid black;
-    background-color: white;
-	
-	transition: .75s ease-out;
+/* een dier - plaatje en naam*/
+li section.plaatje {
+    margin:1em 3em 0;
+	box-shadow:2px 2px 2px rgb(202,204,204);
+    border:1px solid black;
+    background-color:white;
+	transition:.75s ease-out;
 }
 
-li img{
-    width: 100%;
+li img {
+   width:100%;
 }
 
 h2 {
-    text-align: center;
+	text-align: center;
     font: bold 24px/45px Helvetica, Sans-Serif;
 }
 
-/* beweging van de dieren na klikken */
+/* een dier - tijdens draggen */
+/* richting het maken van een keuze */
+/* kan gebruikt worden om feedback te geven tijdens draggen */
+.richtingja section.plaatje{
+    background:rgb(204,255,204);
+}
+
+.richtingnee section.plaatje {
+	background:rgb(255,204,204);
+}
+
+/* een dier - beweging van de dieren na klikken/swipen */
 .ja section.plaatje{
-    -webkit-transform:translateX(200%) rotate(30deg) scale(.8);
-    transform:translateX(200%) rotate(30deg) scale(.8);
+    -webkit-transform:translateX(125%) rotate(30deg) scale(.75);
+    transform:translateX(125%) rotate(30deg) scale(.75);
 	opacity:0;
 }
 
 .nee section.plaatje {
-    -webkit-transform:translateX(-200%) rotate(-30deg) scale(.8);
-    transform:translateX(-200%) rotate(-30deg) scale(.8);
+    -webkit-transform:translateX(-125%) rotate(-30deg) scale(.75);
+    transform:translateX(-125%) rotate(-30deg) scale(.75);
 	opacity:0;
 }
 
-/* ja/nee knoppen */
-/* geen lelijke radio buttons - bedienen via de labels */
-input {
+/* een dier - geen lelijke radio buttons - bedienen via aparte knoppen */
+section.knoppen{
     display:none;
 }
 
-section.knoppen{
-    text-align:center;
-}
-
-label{
-    display:inline-block;
-	width:0;
-	height:6em;
-	padding-left:6em;
-	margin:0 1em;
-	overflow:hidden;
-	
-	border-radius:50%;
-}
-
-label:first-of-type{ /* NEE */
-	background:rgb(204,0,0) url(../images/knop1.png) no-repeat center center;
-	background-size:4em;
-	transform:rotate(180deg);
-}
-
-label:last-of-type{ /* JA */
-	background:rgb(0,204,0) url(../images/knop1.png) no-repeat center center;
-	background-size:4em;
-}
-
-/* button niet zichtbaar - triggeren via javascript */
+/* een dier - submit button niet zichtbaar - triggeren via javascript */
 input[type="submit"] {
     display:none;
 }
 
-/* desktop */
-@media screen and (min-width: 650px) {
-/*li section.plaatje{
-    width:40vw;
-    height:40vw;
-    margin-left:30vw;
+/* de knoppen */
+.deKnoppen {
+	position:absolute;
+	top:100vw;
+	width:100%;
+	text-align:center;
 }
 
-li img{
-    width: auto;
-    height: 30vw;
-}*/
+.deKnoppen a{
+    display:inline-block;
+	width:0;
+	height:4em;
+	padding-left:6em;
+	margin:0 1em;
+	overflow:hidden;
+	
+	border-radius:.5em;
 }
 
-@media only screen and (max-width: 320px) {
-/*li section.plaatje{
-    width:80vw;
-    height:80vw;
+.deKnoppen a:first-of-type{ /* NEE */
+	background:rgb(204,0,0) url(../images/knop1.png) no-repeat center center;
+	background-size:4em;
+	-webkit-transform:rotate(180deg);
+	transform:rotate(180deg);
 }
 
-li img{
-    width: auto;
-    height: 60vw;
-}
-
-input{
-    width: 50%;
-*/
-}
+.deKnoppen a:last-of-type{ /* JA */
+	background:rgb(0,204,0) url(../images/knop1.png) no-repeat center center;
+	background-size:4em;
 }
 
 
+@media screen and (min-width: 32em) {
+	.deKnoppen {
+		top:32em;
+	}
+}

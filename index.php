@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
- <meta name="viewport" content="initial-scale=1">
+ 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <title>De Dieren van Artis</title>
     <link href="css/style.css" rel="stylesheet">
     <link href="css/stemmen.css" rel="stylesheet">
@@ -85,11 +85,21 @@
     </ul>
 
     <input name="versturen" type="submit" value="Versturen">
+    
+    <section class="deKnoppen">
+    	<a href="nee">nee</a>
+        <a href="ja">ja</a>
+    </section>
+    
     </form>
     </main>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-   <!--  <script src="scripts/swipe.js"></script> -->
-    <script src="js/stemmen.js"></script>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+	
+	
+	<script src="//cdnjs.cloudflare.com/ajax/libs/draggabilly/1.2.0/draggabilly.pkgd.min.js"></script>
+    
+	
+	<script src="js/stemmen.js"></script>
 </body>
 </html>
