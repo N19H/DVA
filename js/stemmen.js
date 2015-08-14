@@ -1,15 +1,11 @@
-//swipen
-$("").swiperight(function() {
-    $.mobile.changePage("#page1");
-});
+// toch jQuery voor de compatibiliteit
 
-
-
-// soms toch wat jQuery voor de compatibiliteit
-
-// fire event als een radio button verandert
-$("section > input").change(function(){
-    keuzeGemaakt($(this));
+// document ready
+$(function() {
+	// fire event als een radio button verandert
+	$("section.knoppen > input").change(function(){
+    	keuzeGemaakt($(this));
+	});
 });
 
 // de functie die wordt aangeroepen als een radiobutton wordt aangeroepen
@@ -22,8 +18,14 @@ function keuzeGemaakt(radiobutton) {
 
     // check of het dier niet al ja of nee is om dubbelklikken tijdens animatie te voorkomen
     if (!hetDier.hasClass("ja") && !hetDier.hasClass("nee") ) { //jquery
-        // voeg class ja of nee toe aan het dier om animatie te triggeren
+        // voeg class ja of nee toe aan het dier om de afbeelding-animatie te triggeren
         hetDier.addClass(keuze); //jquery
+		
+		// na de animatie het hele diet hiden zodat de volgende tevoorschijn komt
+		// de time-out moet evenlang zijn als de duur van de transitie
+		setTimeout(function(){
+        	hetDier.hide();
+		}, 500);
 
         // check of het dier het eerste dier is - dan kan het formulier verstuurt worden
         if (hetDier.is(':first-child')) { //jquery

@@ -1,96 +1,100 @@
 /* CSS Document */
-body{
-    overflow: hidden;
+
+
+body, html{
+    width:100%;
+	text-align:center;
 }
+
+html{
+    overflow-x: hidden;
+}
+
+
+/* header */
 
 header{
     text-align: center;
 }
+
 /* de lijst */
 
 ul {
     position:relative;
+	width:100%;
 }
 
-/* een dier - plaatje */
+/* een dier */
 
 li {
     position:absolute;
+	width:100%;
+	
 }
 
-li img{
-    width: auto;
-    height: 60vw;
-}
+/* plaatje en naam*/
 
 li section.plaatje{
     position: relative;
-    width: 100%;
+	
+	margin:2em;
+	padding:1.5em 1.5em 0;
 
-    width:80vw;
-    height:80vw;
-    margin:10vw;
-
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2), 1px 1px 1px rgba(0, 0, 0, 0.2);
-    border: 10px solid white;
-    box-sizing: border-box;
+    box-shadow: 2px 2px 2px rgb(202,204,204);
+    border: 1px solid black;
     background-color: white;
+	
+	transition:transform .5s ease-out;
+}
+
+li img{
+    width: 100%;
 }
 
 h2 {
-    position: absolute;
-    top: 63vw;
-    left: 1%;
-    width: 100%;
     text-align: center;
     font: bold 24px/45px Helvetica, Sans-Serif;
+}
+
+/* beweging van de dieren na klikken */
+.ja section.plaatje{
+    -webkit-transform:translateX(200%) rotate(30deg);
+    transform:translateX(200%) rotate(30deg);
+}
+
+.nee section.plaatje {
+    -webkit-transform:translateX(-200%) rotate(-30deg);
+    transform:translateX(-200%) rotate(-30deg);
 }
 
 /* ja/nee knoppen */
 /* geen lelijke radio buttons - bedienen via de labels */
 input {
     display:none;
-    background-image: url(../knop1.png)
 }
 
 section.knoppen{
-    width: 100%;
-    display: block;
-    border:none;
+    text-align:center;
 }
 
 label{
     display:inline-block;
-    width: 50%;
-    line-height:4em;
-    text-align:center;
-    color:white;
-}
-label:first-of-type{
-    background:rgb(0,204,0);
-    width: 50%;
-    display: inline-block;
-    float: right;
+	width:0;
+	height:6em;
+	padding-left:6em;
+	margin:0 1em;
+	overflow:hidden;
+	
+	border-radius:50%;
 }
 
-label:last-of-type{
-    background:rgb(204,0,0);
-    width: 50%;
-    display: inline-block;
-    float: left;
+label:first-of-type{ /* NEE */
+	background:rgb(204,0,0) url(../images/knop1.png);
 }
 
-/* beweging van de dieren na klikken */
-.ja {
-    -webkit-transform:translateX(145%) rotate(30deg);
-    transform:translateX(145%) rotate(30deg);
-    transition:.5s ease-out;
-}
-
-.nee {
-    -webkit-transform:translateX(-145%) rotate(-30deg);
-    transform:translateX(-145%) rotate(-30deg);
-    transition:.5s ease-out;
+label:last-of-type{ /* JA */
+	background:rgb(0,204,0) url(../images/knop1.png) no-repeat center center;
+	background-size:4em;
 }
 
 /* button niet zichtbaar - triggeren via javascript */
@@ -100,7 +104,7 @@ input[type="submit"] {
 
 /* desktop */
 @media screen and (min-width: 650px) {
-li section.plaatje{
+/*li section.plaatje{
     width:40vw;
     height:40vw;
     margin-left:30vw;
@@ -109,11 +113,11 @@ li section.plaatje{
 li img{
     width: auto;
     height: 30vw;
-}
+}*/
 }
 
 @media only screen and (max-width: 320px) {
-li section.plaatje{
+/*li section.plaatje{
     width:80vw;
     height:80vw;
 }
@@ -125,12 +129,8 @@ li img{
 
 input{
     width: 50%;
-
+*/
 }
-}
-
-img:first-child{
- width: 50px;
 }
 
 
