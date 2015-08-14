@@ -2,7 +2,7 @@
 
 /* de lijst */
 
-ul {
+.results ul {
 	position:relative;
 	
 	display:-ms-flex;
@@ -16,7 +16,7 @@ ul {
 
 /* een dier */
 
-li {
+.results li {
 	-ms-flex-basis:5em;
 	-webkit-flex-basis:5em;
 	flex-basis:5em;
@@ -24,9 +24,11 @@ li {
 	line-height:5em;
 	text-align:center;
 }
-li.ja {
+
+.results li.ja {
 	background:rgb(0,204,0);
 }
-li.nee {
+
+.results li.nee {
 	background:rgb(204,0,0);
 }

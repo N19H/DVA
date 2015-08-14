@@ -13,7 +13,7 @@
     	<h1>De Dieren van Artis</h1>
   	</header>
 
-   <main>
+   <main class="stemmen">
     <p>Zou je in Artis stoppen voor het volgende dier?</p>
     <form name="deDieren" id="deDieren" action="results.php" method="post" enctype="multipart/form-data">
 

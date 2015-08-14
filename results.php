@@ -13,7 +13,7 @@
     	<h1>De Dieren van Artis</h1>
     </header>
     
-    <main>
+    <main class="results">
         <p>Resultaten</p>
         
         <!-- checks en database dingen -->
